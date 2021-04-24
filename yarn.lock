@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@assemblyscript/loader@^0.18.27":
+  version "0.18.27"
+  resolved "https://registry.yarnpkg.com/@assemblyscript/loader/-/loader-0.18.27.tgz#bbb01df82ea9154a8716e817336078c82b5fe41e"
+  integrity sha512-LAYgvvqsEabC4JMmoXaXRLz7cGaGDuz080xlDXslSqGft5e7+5eynWp/PIyLLxWKrKzhaBqHc07hsAYPVjvvtA==
+
 "@babel/code-frame@^7.12.13":
   version "7.12.13"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.12.13.tgz#dcfc826beef65e75c50e21d3837d7d95798dd658"
@@ -313,6 +318,14 @@ anymatch@~3.1.1:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
+assemblyscript@^0.18.27:
+  version "0.18.27"
+  resolved "https://registry.yarnpkg.com/assemblyscript/-/assemblyscript-0.18.27.tgz#8819a1d61ad20b6684ce73383901c13333fc0d71"
+  integrity sha512-2lCqioV9UAhFCWulFr/1HtCrAhIjjZXXrCO2bzQfddkgqc0wh5j30lx4dXunVisH11Zr8Bx7Rwi9kSEE3hiqyg==
+  dependencies:
+    binaryen "100.0.0-nightly.20210413"
+    long "^4.0.0"
+
 at-least-node@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/at-least-node/-/at-least-node-1.0.0.tgz#602cd4b46e844ad4effc92a8011a3c46e0238dc2"
@@ -349,6 +362,11 @@ binary-extensions@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.2.0.tgz#75f502eeaf9ffde42fc98829645be4ea76bd9e2d"
   integrity sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==
+
+binaryen@100.0.0-nightly.20210413:
+  version "100.0.0-nightly.20210413"
+  resolved "https://registry.yarnpkg.com/binaryen/-/binaryen-100.0.0-nightly.20210413.tgz#b7f2a5bb1f76b2d6f9c67486ca218714b3766790"
+  integrity sha512-EeGLIxQmJS0xnYl+SH34mNBqVMoixKd9nsE7S7z+CtS9A4eoWn3Qjav+XElgunUgXIHAI5yLnYT2TUGnLX2f1w==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -812,6 +830,11 @@ lodash@^4.17.21:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
+long@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/long/-/long-4.0.0.tgz#9a7b71cfb7d361a194ea555241c92f7468d5bf28"
+  integrity sha512-XsP+KhQif4bjX1kbuSiySJFNAehNxgLb6hPRGJ9QsUr8ajHkuXGdrHmFUTUUXhDwVX2R5bY4JNZEwbUiMhV+MA==
 
 match-sorter@^6.0.2:
   version "6.3.0"

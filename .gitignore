@@ -3,3 +3,6 @@ node_modules
 dist
 dist-ssr
 *.local
+*.wasm
+*.wasm.map
+*.asm.js

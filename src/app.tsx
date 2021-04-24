@@ -1,11 +1,23 @@
+import loader from '@assemblyscript/loader';
+import { useEffect } from 'preact/hooks';
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 import { getCoin } from './api';
 import Crypto from './components/Crypto';
 import Money from './components/Money';
 import { Coin } from './interfaces/Coin.interface';
 
+const loadWASM = async () => {
+  const instances = await loader.instantiate(
+    fetch('../wasm/build/optimized.wasm')
+  );
+  console.log(instances.exports);
+};
+
 const App = () => {
   const queryClient = new QueryClient();
+  useEffect(() => {
+    loadWASM();
+  }, []);
   return (
     <QueryClientProvider client={queryClient}>
       <AppContainer />
