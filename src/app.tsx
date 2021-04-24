@@ -1,14 +1,26 @@
-export function App() {
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
+import { getCoin } from './api';
+import Crypto from './components/Crypto';
+import Money from './components/Money';
+import { Coin } from './interfaces/Coin.interface';
+
+const App = () => {
+  const queryClient = new QueryClient();
   return (
-    <>
-      <div class='inline-flex rounded-md shadow'>
-        <a
-          href='#'
-          class='inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700'
-        >
-          Get started
-        </a>
-      </div>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <AppContainer />
+    </QueryClientProvider>
   );
-}
+};
+
+const AppContainer = () => {
+  const { data, isSuccess } = useQuery<Coin, unknown>('coin', getCoin);
+  return (
+    <div className='grid w-screen h-screen grid-rows-2 md:grid-cols-2 md:grid-rows-none'>
+      <Crypto data={data} isSuccess={isSuccess} />
+      <Money data={data} />
+    </div>
+  );
+};
+
+export default App;
