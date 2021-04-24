@@ -1,20 +1,14 @@
-import { Logo } from './logo'
-
 export function App() {
   return (
     <>
-      <Logo />
-      <p>Hello Vite + Preact!</p>
-      <p>
+      <div class='inline-flex rounded-md shadow'>
         <a
-          class="link"
-          href="https://preactjs.com/"
-          target="_blank"
-          rel="noopener noreferrer"
+          href='#'
+          class='inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700'
         >
-          Learn Preact
+          Get started
         </a>
-      </p>
+      </div>
     </>
-  )
+  );
 }
