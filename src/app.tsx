@@ -5,12 +5,17 @@ import { getCoin } from './api';
 import Crypto from './components/Crypto';
 import Money from './components/Money';
 import { Coin } from './interfaces/Coin.interface';
+import { WASM } from './wasm';
 
 const loadWASM = async () => {
-  const instances = await loader.instantiate(
+  const instances = await loader.instantiate<WASM>(
     fetch('../wasm/build/optimized.wasm')
   );
-  console.log(instances.exports);
+  const { getMoney, __getArray } = instances.exports;
+  const arrayPointer = getMoney(1, 1250.2);
+  const values = __getArray(arrayPointer);
+
+  console.log('clg', values);
 };
 
 const App = () => {

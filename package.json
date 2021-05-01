@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "yarn asbuild && tsc && vite build",
     "serve": "vite preview",
-    "asbuild:untouched": "asc wasm/assembly/index.ts --target debug",
-    "asbuild:optimized": "asc wasm/assembly/index.ts --target release",
+    "asbuild:untouched": "asc --exportRuntime wasm/assembly/index.ts --target debug",
+    "asbuild:optimized": "asc --exportRuntime wasm/assembly/index.ts --target release",
     "asbuild": "yarn asbuild:untouched && yarn asbuild:optimized"
   },
   "dependencies": {

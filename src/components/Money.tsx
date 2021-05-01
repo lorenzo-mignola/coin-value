@@ -6,7 +6,7 @@ const Money = ({ data }: Props) => {
       <div>
         <h1 className='text-white text-5xl font-bold'>💵 Current value</h1>
         <h2 className='text-white text-3xl mt-9 ml-2'>
-          {Number(data?.market_data.current_price?.usd || 0).toLocaleString()}$
+          {Number(data?.market_data.current_price?.chf || 0).toLocaleString()}₣
         </h2>
       </div>
     </div>
