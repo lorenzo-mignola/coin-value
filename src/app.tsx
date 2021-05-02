@@ -1,32 +1,45 @@
 import loader from '@assemblyscript/loader';
-import { useEffect } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 import { getCoin } from './api';
 import Crypto from './components/Crypto';
 import Money from './components/Money';
+import { CoinsContext, WASMContext, WASMContextInterface } from './context';
 import { Coin } from './interfaces/Coin.interface';
 import { WASM } from './wasm';
 
-const loadWASM = async () => {
+const loadWASM = async (setter: (f: any) => void) => {
   const instances = await loader.instantiate<WASM>(
     fetch('../wasm/build/optimized.wasm')
   );
   const { getMoney, __getArray } = instances.exports;
-  const arrayPointer = getMoney(1, 1250.2);
-  const values = __getArray(arrayPointer);
-
-  console.log('clg', values);
+  setter({
+    getMoneyWASM: (crypto: number, value: number) =>
+      __getArray(getMoney(crypto, value)).map(value => Number(value.toFixed(2)))
+  });
 };
 
 const App = () => {
   const queryClient = new QueryClient();
+
+  const [wasmFunctions, setWasmFunctions] = useState<WASMContextInterface>({
+    getMoneyWASM: () => []
+  });
+
   useEffect(() => {
-    loadWASM();
+    loadWASM(setWasmFunctions);
   }, []);
+
+  const [coins, setCoins] = useState(0);
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <AppContainer />
-    </QueryClientProvider>
+    <WASMContext.Provider value={wasmFunctions}>
+      <CoinsContext.Provider value={{ coins, setCoins }}>
+        <QueryClientProvider client={queryClient}>
+          <AppContainer />
+        </QueryClientProvider>
+      </CoinsContext.Provider>
+    </WASMContext.Provider>
   );
 };
 

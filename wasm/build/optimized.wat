@@ -2265,7 +2265,7 @@
     f32.load
     local.tee $10
     f32.div
-    f32.const 4.999999873689376e-06
+    f32.const 0.004999999888241291
     f32.add
     f32.trunc
     local.tee $9

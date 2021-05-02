@@ -4168,7 +4168,7 @@
     local.get $2
     local.get $6
     f32.div
-    f32.const 4.999999873689376e-06
+    f32.const 0.004999999888241291
     f32.add
     local.set $7
     local.get $7

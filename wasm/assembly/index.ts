@@ -21,8 +21,8 @@ export function getMoney(crypto: f32, value: f32): Array<f32> {
   const money = new Array<f32>(0);
 
   for (let index = 0; index < moneySize.length; index++) {
-    const size: f32 = moneySize[index];
-    const timeSize: f32 = NativeMathf.trunc(valueInCurrency / size + 0.000005);
+    const size = moneySize[index];
+    const timeSize = NativeMathf.trunc(valueInCurrency / size + 0.005);
     if (timeSize >= 0) {
       valueInCurrency -= timeSize * size;
       for (let index: f32 = 0; index < timeSize; index++) {
