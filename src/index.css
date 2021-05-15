@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#info-button {
+  border: none !important;
+  outline: none !important;
+}

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@assemblyscript/loader": "^0.18.27",
+    "@heroicons/react": "^1.0.1",
     "preact": "^10.5.13",
     "react-query": "^3.13.12"
   },
